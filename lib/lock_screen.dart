@@ -509,11 +509,12 @@ class _LockScreenState extends State<LockScreen> {
             if (unlocked) {
               Navigator.pop(context);
 
-              if (widget.onUnlocked != null) {
-                widget.onUnlocked!();
+                if (widget.onUnlocked != null) {
+                  widget.onUnlocked!();
+                }
+              } else {
+                _verifyMaxRetries();
               }
-            } else {
-              _verifyMaxRetries();
             }
           });
         }
