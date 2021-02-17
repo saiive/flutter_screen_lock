@@ -21,6 +21,7 @@ Future showConfirmPasscode({
       const CircleInputButtonConfig(),
   int maxRetries = 1,
   void Function()? didMaxRetries,
+  void Function(int retries)? onError,
 }) {
   return Navigator.of(context).push(
     PageRouteBuilder(
@@ -92,6 +93,7 @@ Future showLockScreen({
   void Function()? onUnlocked,
   int maxRetries = 1,
   void Function()? didMaxRetries,
+  void Function(int retries)? onError,
 }) {
   return Navigator.of(context).push(
     PageRouteBuilder(
@@ -183,12 +185,8 @@ class LockScreen extends StatefulWidget {
   final int maxRetries;
   final void Function()? didMaxRetries;
 
-  /// -1 is unlimited. [Default -1]
-  final int maxRetries;
-  final void Function() didMaxRetries;
-
   /// Called every time correctString or biometric fails.
-  final void Function(int retries) onError;
+  final void Function(int retries)? onError;
 
   LockScreen({
     this.correctString,
@@ -386,7 +384,7 @@ class _LockScreenState extends State<LockScreen> {
 
   void _incorrect(int retries) {
     if (widget.onError != null) {
-      widget.onError(retries);
+      widget.onError!(retries);
     }
   }
 
@@ -533,6 +531,7 @@ class _LockScreenState extends State<LockScreen> {
               }
             } else {
               _verifyMaxRetries();
+              _incorrect(_retries);
             }
           });
         }
