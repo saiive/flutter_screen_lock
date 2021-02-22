@@ -1,6 +1,8 @@
 # Changelog
 
-## [2.0.1-nullsafety] - 2021-02-22
+## [2.0.2-nullsafety] - 2021-02-22
+
+- Add the `onError` event when input fails.
 
 ## [1.2.8+1] - 2021-02-22
 
