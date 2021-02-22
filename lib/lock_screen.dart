@@ -181,6 +181,10 @@ class LockScreen extends StatefulWidget {
   final int maxRetries;
   final void Function()? didMaxRetries;
 
+  /// -1 is unlimited. [Default -1]
+  final int maxRetries;
+  final void Function() didMaxRetries;
+
   LockScreen({
     this.correctString,
     this.title = 'Please enter passcode.',
