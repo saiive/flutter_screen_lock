@@ -188,13 +188,6 @@ class LockScreen extends StatefulWidget {
   /// Called every time correctString or biometric fails.
   final void Function(int retries)? onError;
 
-  /// -1 is unlimited. [Default -1]
-  final int maxRetries;
-  final void Function() didMaxRetries;
-
-  /// Called every time correctString or biometric fails.
-  final void Function(int retries) onError;
-
   LockScreen({
     this.correctString,
     this.title = 'Please enter passcode.',
@@ -269,9 +262,6 @@ class _LockScreenState extends State<LockScreen> {
                 if (widget.onUnlocked != null) {
                   widget.onUnlocked!();
                 }
-              } else {
-                _verifyMaxRetries();
-                _incorrect(_retries);
               }
             });
           });
@@ -287,9 +277,6 @@ class _LockScreenState extends State<LockScreen> {
                   if (widget.onUnlocked != null) {
                     widget.onUnlocked!();
                   }
-                } else {
-                  _verifyMaxRetries();
-                  _incorrect(_retries);
                 }
               });
             },
@@ -536,9 +523,6 @@ class _LockScreenState extends State<LockScreen> {
               if (widget.onUnlocked != null) {
                 widget.onUnlocked!();
               }
-            } else {
-              _verifyMaxRetries();
-              _incorrect(_retries);
             }
           });
         }

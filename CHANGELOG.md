@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.3-nullsafety] - 2021-02-22
+
+- `didMaxRetries` and `onError` are not handled by biometric.
+
+## [1.2.9] - 2021-02-22
+
+- `didMaxRetries` and `onError` are not handled by biometric.
+
 ## [2.0.2-nullsafety] - 2021-02-22
 
 - Add the `onError` event when input fails.
