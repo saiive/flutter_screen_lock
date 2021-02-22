@@ -94,16 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   correctString: '1234',
                   canBiometric: true,
                   showBiometricFirst: true,
-                  // biometricFunction: (context) async {
-                  //   final localAuth = LocalAuthentication();
-                  //   final didAuthenticate =
-                  //       await localAuth.authenticateWithBiometrics(
-                  //           localizedReason: 'Please authenticate');
-
-                  //   if (didAuthenticate) {
-                  //     Navigator.of(context).pop();
-                  //   }
-                  // },
                   biometricAuthenticate: (_) async {
                     final localAuth = LocalAuthentication();
                     final didAuthenticate = await localAuth.authenticate(
@@ -199,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('Max retries'),
                 onPressed: () => showLockScreen(
                   context: context,
@@ -216,9 +206,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   biometricAuthenticate: (_) async {
                     final localAuth = LocalAuthentication();
-                    final didAuthenticate =
-                        await localAuth.authenticateWithBiometrics(
-                            localizedReason: 'Please authenticate');
+                    final didAuthenticate = await localAuth.authenticate(
+                      localizedReason: 'Please authenticate',
+                      biometricOnly: true,
+                    );
 
                     if (didAuthenticate) {
                       return true;
