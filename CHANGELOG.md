@@ -14,6 +14,10 @@
 
 - Added the ability to limit the maximum retries.
 
+## [2.0.1-nullsafety] - 2021-02-22
+
+- Added the ability to limit the maximum retries.
+
 ## [1.2.7] - 2021-02-22
 
 - Added the ability to limit the maximum retries.
