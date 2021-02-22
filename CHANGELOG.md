@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.7] - 2021-02-22
+
+- Added the ability to limit the maximum retries.
+
 ## [2.0.0-nullsafety] - 2021-02-17
 
 - Supports null safety
