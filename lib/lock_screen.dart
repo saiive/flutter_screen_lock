@@ -45,7 +45,6 @@ Future showConfirmPasscode({
           circleInputButtonConfig: circleInputButtonConfig,
           maxRetries: maxRetries,
           didMaxRetries: didMaxRetries,
-          onError: onError,
         );
       },
       transitionsBuilder: (
@@ -132,7 +131,6 @@ Future showLockScreen({
           onUnlocked: onUnlocked,
           maxRetries: maxRetries,
           didMaxRetries: didMaxRetries,
-          onError: onError,
         );
       },
       transitionsBuilder: (
@@ -218,7 +216,6 @@ class LockScreen extends StatefulWidget {
     this.onUnlocked,
     this.maxRetries = -1,
     this.didMaxRetries,
-    this.onError,
   });
 
   @override
@@ -246,7 +243,7 @@ class _LockScreenState extends State<LockScreen> {
 
   List<String> enteredValues = <String>[];
 
-  int _retries = 0;
+  int _maxRetries = 0;
 
   @override
   void initState() {
@@ -269,6 +266,8 @@ class _LockScreenState extends State<LockScreen> {
                 if (widget.onUnlocked != null) {
                   widget.onUnlocked!();
                 }
+              } else {
+                _verifyMaxRetries();
               }
             });
           });
@@ -284,6 +283,8 @@ class _LockScreenState extends State<LockScreen> {
                   if (widget.onUnlocked != null) {
                     widget.onUnlocked!();
                   }
+                } else {
+                  _verifyMaxRetries();
                 }
               });
             },
@@ -367,14 +368,13 @@ class _LockScreenState extends State<LockScreen> {
         enteredValues.clear();
         enteredLengthStream.add(enteredValues.length);
         _verifyMaxRetries();
-        _incorrect(_retries);
       }
     });
   }
 
   /// Check if the maximum number of retries has been reached.
   void _verifyMaxRetries() {
-    if (_retries >= widget.maxRetries) {
+    if (_maxRetries >= widget.maxRetries) {
       if (widget.didMaxRetries != null) {
         widget.didMaxRetries!();
       }

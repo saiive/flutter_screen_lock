@@ -194,10 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => showLockScreen(
                   context: context,
                   correctString: '1234',
-                  maxRetries: 1,
-                  onError: (retries) {
-                    print(retries);
-                  },
+                  maxRetries: 0,
                   didMaxRetries: () {
                     Navigator.pop(context);
                     showAboutDialog(
