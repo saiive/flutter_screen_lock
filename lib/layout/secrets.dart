@@ -40,19 +40,17 @@ class _SecretsState extends State<Secrets> with SingleTickerProviderStateMixin {
       duration: const Duration(milliseconds: 80),
     );
 
-    _animation = _animationController
-        .drive(CurveTween(curve: Curves.elasticIn))
-        .drive(Tween<Offset>(begin: Offset.zero, end: const Offset(0.05, 0)))
-          ..addListener(() {
-            setState(() {});
-          })
-          ..addStatusListener(
-            (status) {
-              if (status == AnimationStatus.completed) {
-                _animationController.reverse();
-              }
-            },
-          );
+    _animation = _animationController.drive(CurveTween(curve: Curves.elasticIn)).drive(Tween<Offset>(begin: Offset.zero, end: const Offset(0.05, 0)))
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener(
+        (status) {
+          if (status == AnimationStatus.completed) {
+            _animationController.reverse();
+          }
+        },
+      );
   }
 
   @override

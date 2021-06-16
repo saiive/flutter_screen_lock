@@ -1,8 +1,7 @@
 import 'dart:async';
 
 class InputController {
-  InputController(){
-    
+  InputController() {
     _inputController = StreamController.broadcast();
     _verifyController = StreamController.broadcast();
     _confirmedController = StreamController.broadcast();
@@ -26,6 +25,8 @@ class InputController {
 
   /// Get confirmed result stream.
   Stream<bool> get confirmed => _confirmedController.stream;
+
+  StreamController<bool> get verifyController => _verifyController;
 
   String _firstInput = '';
 
@@ -86,6 +87,10 @@ class InputController {
     final inputText = _currentInputs.join();
     late String correctString;
 
+    if (!_isConfirmed) {
+      return;
+    }
+
     if (_isConfirmed) {
       correctString = _firstInput;
     } else {
@@ -105,7 +110,6 @@ class InputController {
     required String correctString,
     bool isConfirmed = false,
   }) {
-
     _digits = digits;
     _correctString = correctString;
     _isConfirmed = isConfirmed;

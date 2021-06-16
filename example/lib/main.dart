@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () => showDialog<void>(
                 context: context,
                 builder: (context) {
-                  return const ScreenLock(correctString: '1234');
+                  return const ScreenLock(correctString: '', digits: 6);
                 },
               ),
               child: const Text('Manualy open'),

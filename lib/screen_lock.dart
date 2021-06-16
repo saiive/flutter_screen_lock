@@ -14,8 +14,7 @@ class ScreenLock extends StatefulWidget {
     Key? key,
     required this.correctString,
     this.title = const HeadingTitle(text: 'Please enter passcode.'),
-    this.confirmTitle =
-        const HeadingTitle(text: 'Please enter confirm passcode.'),
+    this.confirmTitle = const HeadingTitle(text: 'Please enter confirm passcode.'),
     this.screenLockConfig = const ScreenLockConfig(),
     this.secretsConfig = const SecretsConfig(),
     this.inputButtonConfig = const InputButtonConfig(),
@@ -199,8 +198,7 @@ class _ScreenLockState extends State<ScreenLock> {
 
   @override
   Widget build(BuildContext context) {
-    final secretLength =
-        widget.confirmation ? widget.digits : widget.correctString.length;
+    final secretLength = widget.digits;
     return WillPopScope(
       onWillPop: () async => widget.canCancel,
       child: Theme(
