@@ -54,8 +54,8 @@ Future<T>? screenLock<T>({
   Widget confirmTitle =
       const HeadingTitle(text: 'Please enter confirm passcode.'),
   InputController? inputController,
-}) async {
-  await Navigator.push(
+})  {
+  return Navigator.push(
     context,
     PageRouteBuilder<void>(
       opaque: false,
