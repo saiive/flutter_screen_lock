@@ -51,11 +51,10 @@ Future<T>? screenLock<T>({
   Widget? cancelButton,
   Widget? deleteButton,
   Widget title = const HeadingTitle(text: 'Please enter passcode.'),
-  Widget confirmTitle =
-      const HeadingTitle(text: 'Please enter confirm passcode.'),
+  Widget confirmTitle = const HeadingTitle(text: 'Please enter confirm passcode.'),
   InputController? inputController,
-})  {
-  return Navigator.push(
+}) async {
+  await Navigator.push(
     context,
     PageRouteBuilder<void>(
       opaque: false,

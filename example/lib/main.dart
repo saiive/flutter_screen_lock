@@ -162,9 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Container(
                             decoration: BoxDecoration(
                               shape: BoxShape.rectangle,
-                              color: enabled
-                                  ? config.enabledColor
-                                  : config.disabledColor,
+                              color: enabled ? config.enabledColor : config.disabledColor,
                               border: Border.all(
                                 width: config.borderSize,
                                 color: config.borderColor,
@@ -181,8 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   inputButtonConfig: InputButtonConfig(
-                      textStyle: InputButtonConfig.getDefaultTextStyle(context)
-                          .copyWith(
+                      textStyle: InputButtonConfig.getDefaultTextStyle(context).copyWith(
                         color: Colors.orange,
                         fontWeight: FontWeight.bold,
                       ),
@@ -190,18 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         shape: const RoundedRectangleBorder(),
                         backgroundColor: Colors.deepOrange,
                       ),
-                      displayStrings: [
-                        '零',
-                        '壱',
-                        '弐',
-                        '参',
-                        '肆',
-                        '伍',
-                        '陸',
-                        '質',
-                        '捌',
-                        '玖'
-                      ]),
+                      displayStrings: ['零', '壱', '弐', '参', '肆', '伍', '陸', '質', '捌', '玖']),
                   cancelButton: const Icon(Icons.close),
                   deleteButton: const Icon(Icons.delete),
                 );
